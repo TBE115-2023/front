@@ -22,9 +22,21 @@ headers: {
   });
   export default {
     name: 'HelloWorld',
-
-
-
+    data: () => ({
+      headers: [
+          {
+            text: 'Fecha de medición',
+            align: 'start',
+            sortable: false,
+            value: 'fecha',
+          },
+          { text: 'Luminocidad  (en lux, medianoche=35; mediodía =600) ', value: 'sensor1' },
+          { text: 'Temperatura de ambiente (C)', value: 'sensor2' },
+          { text: 'Humedad de Cultivos 1 %', value: 'sensor3' },
+          { text: 'Humedad de Cultivos 2 %', value: 'sensor4' },
+        ],
+        data: []
+    }),
     methods:{
                 buscar(){
             let url = "http://192.168.1.30:3003/api/mediciones/sensores";//los datos a buscar para mostrar en el front end
