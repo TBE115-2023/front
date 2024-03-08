@@ -1,14 +1,25 @@
 <template>
-   <v-main>
-  <h1>Control del sistema</h1>
+ 
+ <v-main>
+  <h1>Administración</h1>
   <div id="app">
   <v-app id="inspire">
-      
+    <v-container  style = "height: 175px;">
+      <v-select  :items="tipocontrol" filled label="Tipo de control">
+      </v-select>
+      <v-row align="center">
+        <v-col   class="d-flex" cols="1" sm="3">
+         </v-col>
+         <v-col class="d-flex" cols="1" sm="6" >
+         </v-col>
+      </v-row>
+    </v-container>
+  
 
 
+    <v-card   height="50" color="#DBF9FC"><center><strong>Control Automatico ejecutado cada x minutos</strong></center></v-card>
     
-    
-    <v-select  :items="estado" filled label="Estado del sistema">
+    <v-select  :items="tipocultivo" filled label="Tipo de cultivo">
       </v-select>
 
     <v-row>
@@ -47,7 +58,7 @@
       </center></v-col>
     </v-row>
 
-    <v-card   height="50" color="#DBF9FC"><center><strong>Modo Prueba</strong></center></v-card>
+    <v-card   height="50" color="#DBF9FC"><center><strong>Control Manual</strong></center></v-card>
 
     
 
@@ -59,7 +70,7 @@
       <v-btn depressed>
       prueba
     </v-btn>
-    </center>
+   0. </center>
     </v-col>
       
       <v-col> <center>
@@ -87,45 +98,6 @@
       </center></v-col>
     </v-row>
 
-
-    <template>
-  <div>
-    <div class="d-flex">
-      <v-checkbox v-model="disabled" label="Disabled"></v-checkbox>
-    </div>
-
-    <v-expansion-panels v-model="panel" :disabled="disabled" multiple>
-      <v-expansion-panel>
-        <v-expansion-panel-title
-          >Configuración Personalizada</v-expansion-panel-title
-        >
-
-        <v-expansion-panel-text>
-          <v-sheet :width="100" color="#DBF9FC">
-            <strong>Iluminacion</strong></v-sheet
-          >
-          <v-slider v-model="value" step="10" thumb-label ticks></v-slider>
-
-          <v-sheet :width="100" color="#DBF9FC">
-            <strong>Humedad en tierra</strong></v-sheet
-          >
-          <v-slider v-model="value" step="10" thumb-label ticks></v-slider>
-
-          <v-sheet :width="100" color="#DBF9FC">
-            <strong>Temperatura</strong></v-sheet
-          >
-          <v-slider v-model="value" step="10" thumb-label ticks></v-slider>
-
-          <v-btn> guardar valores</v-btn>
-        </v-expansion-panel-text>
-      </v-expansion-panel>
-    </v-expansion-panels>
-  </div>
-</template>
-
-
-
-
   </v-app>
 </div>
  
@@ -136,10 +108,9 @@
     <script>
     export default {
       data: () => ({
-        estado: ['Encendido', 'Apagado'],
+        tipocontrol: ['Automatico', 'Manual'],
         tipocultivo: ['cultivo1','cultivo2','cultivo3'],
-        panel:[0,1],
-        disabled:true,
+
       }),
     }
   </script>
