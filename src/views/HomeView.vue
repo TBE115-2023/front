@@ -59,11 +59,11 @@ import footerCustom from './footerApp.vue'
           name:"Consultas",
           route:"consultas"
         },
-        {
-          icon:"mdi-cog-outline",
-          name:"Administracion",
-          route:"administracion"
-        },
+        // {
+        //   icon:"mdi-cog-outline",
+        //   name:"Administracion",
+        //   route:"administracion"
+        // },
         {
           icon:"mdi-monitor-dashboard",
           name:"Control",

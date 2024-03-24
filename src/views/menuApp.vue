@@ -51,19 +51,20 @@
           name:"Consultas",
           route:"consultas"
         },
-        {
-          icon:"mdi-cog-outline",
-          name:"Administracion",
-          route:"administracion"
-        },
+        // {
+        //   icon:"mdi-cog-outline",
+        //   name:"Administracion",
+        //   route:"administracion"
+        // },
         {
           icon:"mdi-monitor-dashboard",
           name:"Control",
           route:"control"
-        },{
+        },
+        {
           icon:"mdi-sun-thermometer-outline",
-          name:"Configuracion",
-          route:"configuracion"
+          name:"Log del sistema",
+          route:"logs"
         },
       ]
     }),
