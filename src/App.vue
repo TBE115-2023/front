@@ -1,12 +1,20 @@
 <template>
   <div id="app">
     <nav>
+      <MenuCustom></MenuCustom>
       <router-link to="/">Inicio</router-link> |
-      
     </nav>
     <router-view/>
   </div>
 </template>
+<script>
+import MenuCustom from './views/menuApp.vue';
+export default {
+  components:{
+    MenuCustom,
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
