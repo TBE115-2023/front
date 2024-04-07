@@ -62,36 +62,54 @@ headers:[
       value: 'FECHA',
     },
     {
-      text: 'Humedad Ambiente',
+      text: 'Humedad Ambiente1',
       align: 'start',
       sortable: true,
-      value: 'DTH11H',
+      value: 'HAMB1',
     },
     {
-      text: 'Temperatura Ambiente',
+      text: 'Humedad Ambiente2',
       align: 'start',
       sortable: true,
-      value: 'DTH11T',
+      value: 'HAMB2',
     },
     {
-      text: 'Humedad de tierra C',
+      text: 'Temperatura Ambiente1',
       align: 'start',
       sortable: true,
-      value: 'HUMCAP',
+      value: 'TAMB1',
     },
     {
-      text: 'Humedad de tierra R',
+      text: 'Temperatura Ambiente2',
       align: 'start',
       sortable: true,
-      value: 'HUMRES',
+      value: 'TAMB2',
     },
     {
-      text: 'Temperatura Ambiente LM35',
+      text: 'Humedad de tierra 1',
       align: 'start',
       sortable: true,
-      value: 'LM35',
+      value: 'HTI1',
     },
-
+    {
+      text: 'Humedad de tierra 2',
+      align: 'start',
+      sortable: true,
+      value: 'HTI2',
+    },
+   
+    {
+      text: 'iluminacion invernadero 1',
+      align: 'start',
+      sortable: true,
+      value: 'LUM1',
+    },
+    {
+      text: 'iluminacion invernadero 2',
+      align: 'start',
+      sortable: true,
+      value: 'LUM2',
+    },
 ]
   }),
   methods:{

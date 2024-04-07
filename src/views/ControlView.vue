@@ -13,7 +13,7 @@
 
     <v-row>
         <v-col style = "height: 175px;"> <center>
-        <v-sheet :width="100" color="#DBF9FC"><center><strong>Climatizacion</strong></center></v-sheet>
+        <v-sheet :width="100" color="#DBF9FC"><center><strong>Tem. Ambiente (extractor)</strong></center></v-sheet>
        
         <v-slider   v-model="value"  step="10" disabled ticks label="disabled"></v-slider>
 
