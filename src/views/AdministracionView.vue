@@ -222,6 +222,49 @@
                   </v-card-text>
                 </v-card>
               </v-col>
+              <v-col cols="6" md="4">
+                <v-card>
+                  <v-card-title> Humedad en tierra </v-card-title>
+                  <v-card-text>
+                    <v-row>
+                      <v-col cols="6" md="6">
+                        <v-card>
+                          <v-card-title class="break-word"
+                            >Izquierda</v-card-title
+                          >
+                          <v-card-text>
+                            <v-progress-circular
+                              :rotate="360"
+                              :size="125"
+                              :width="15"
+                              :value="form.humedadIzquierda"
+                              color="teal"
+                            >
+                              {{ form.humedadIzquierda }}
+                            </v-progress-circular>
+                          </v-card-text>
+                        </v-card>
+                      </v-col>
+                      <v-col cols="6" md="6">
+                        <v-card>
+                          <v-card-title>Derecha</v-card-title>
+                          <v-card-text>
+                            <v-progress-circular
+                              :rotate="360"
+                              :size="125"
+                              :width="15"
+                              :value="form.humedadDerecha"
+                              color="teal"
+                            >
+                              {{ form.humedadDerecha }}
+                            </v-progress-circular>
+                          </v-card-text>
+                        </v-card>
+                      </v-col>
+                    </v-row>
+                  </v-card-text>
+                </v-card>
+              </v-col>
             </v-row>
           </v-card-text>
           <v-card-actions>
@@ -429,7 +472,7 @@ export default {
 
       const {
         data: [last],
-      } = await servicioConsulta.getLastData({ elements: 1 });
+      } = await servicioConsulta.getLastData({ elements: 1, pagination:false });
 
       const { TAMB1, TAMB2, HTD1, HTD2, HTI1, HTI2 } = last;
 

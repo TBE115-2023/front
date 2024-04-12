@@ -1,93 +1,163 @@
 <template>
-  <div>
-    <v-layout style="overflow: hidden">
-          
-          
-    </v-layout>
-
-
   <v-main>
-    <v-row>
     
-      <v-col style = "height: 175px;"> <center>
-        
-        <v-progress-circular  :rotate="360"   :size="125"  :width="15"  :value="33"    color="teal" >
-          {{ 37 }}
-        </v-progress-circular>
-       <v-sheet :width="100" color="#DBF9FC"><center><strong>Temperatura</strong></center></v-sheet>
-      </center></v-col>
-      
-      <v-col> <center>
-        <v-progress-circular   :rotate="360"   :size="125"  :width="15"   :value="33"  color="teal" > 
-          {{ 60 }}
-        </v-progress-circular>
-        <v-sheet :width="100" color="#DBF9FC"><center><strong> Humedad </strong></center></v-sheet>
-      </center></v-col>
-     
-     <v-responsive width="100%"></v-responsive>
-      
-
-      <v-col> <center>
-        <v-progress-circular  :rotate="360"  :size="125"   :width="15"   :value="33"   color="teal" >
-          {{ 80 }}
-         </v-progress-circular>
-        <v-sheet :width="100" color="#DBF9FC"><center><strong>Iluminosidad</strong></center></v-sheet>
-        </center></v-col>
-
-      <v-col><center>
-        <v-progress-circular    :rotate="360"    :size="125"    :width="15"    :value="33"    color="teal" >
-         {{ 3  }}
-        </v-progress-circular>
-       <v-sheet :width="100" color="#DBF9FC"> <center><strong>dias desde siembra</strong></center> </v-sheet>
-      </center></v-col>
+    <v-row>
+      <v-col cols="6" md="4">
+        <v-card>
+          <v-card-title>Temperatura Ambiente</v-card-title>
+          <v-card-text></v-card-text>
+          <v-progress-circular
+                              :rotate="360"
+                              :size="125"
+                              :width="15"
+                              :value="form.temperatura"
+                              color="teal"
+                            >
+                              {{ form.temperatura }}
+                            </v-progress-circular>
+        </v-card>
+      </v-col>
+      <v-col cols="6" md="4">
+        <v-card>
+          <v-card-title>Humedad Ambiente</v-card-title>
+          <v-card-text></v-card-text>
+          <v-progress-circular
+                              :rotate="360"
+                              :size="125"
+                              :width="15"
+                              :value="form.humedadambiente"
+                              color="teal"
+                            >
+                              {{ form.humedadambiente }}
+                            </v-progress-circular>
+        </v-card>
+      </v-col>
+      <v-col cols="6" md="4">
+        <v-card>
+          <v-card-title>Iluminación</v-card-title>
+          <v-card-text></v-card-text>
+          <v-progress-circular
+                              :rotate="360"
+                              :size="125"
+                              :width="15"
+                              :value="form.luz1"
+                              color="teal"
+                            >
+                              {{ form.luz1 }}
+                            </v-progress-circular>
+        </v-card>
+      </v-col>
+      <v-col cols="6" md="4">
+        <v-card>
+          <v-card-title>Humedad en tierra sector izquierdo</v-card-title>
+          <v-card-text></v-card-text>
+          <v-progress-circular
+                              :rotate="360"
+                              :size="125"
+                              :width="15"
+                              :value="form.humedadIzquierda"
+                              color="teal"
+                            >
+                              {{ form.humedadIzquierda }}
+                            </v-progress-circular>
+        </v-card>
+      </v-col>
+      <v-col cols="6" md="4">
+        <v-card>
+          <v-card-title></v-card-title>
+          <v-card-text></v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="6" md="4">
+        <v-card>
+          <v-card-title>Humedad en tierra sector derecho</v-card-title>
+          <v-card-text></v-card-text>
+          <v-progress-circular
+                              :rotate="360"
+                              :size="125"
+                              :width="15"
+                              :value="form.humedadDerecha"
+                              color="teal"
+                            >
+                              {{ form.humedadDerecha }}
+                            </v-progress-circular>
+        </v-card>
+      </v-col>
+    
     </v-row>
     <footerCustom></footerCustom>
   </v-main>
-</div>
 </template>
 
 <script>
 // import router from '@/router';
-import footerCustom from './footerApp.vue'
+import footerCustom from "./footerApp.vue";
+import servicioConsulta from "../services/consultaService";
+import moment from "moment";
 
-  export default {
-    data: () => ({
-      drawer: false,
-      group: null,
-      arreglo:[
-        {
-          icon:"mdi-database-search",
-          name:"Consultas",
-          route:"consultas"
-        },
-        // {
-        //   icon:"mdi-cog-outline",
-        //   name:"Administracion",
-        //   route:"administracion"
-        // },
-        {
-          icon:"mdi-monitor-dashboard",
-          name:"Control",
-          route:"control"
-        },{
-          icon:"mdi-sun-thermometer-outline",
-          name:"Configuracion",
-          route:"configuracion"
-        },
-      ]
-    }),
-    components:{
-        footerCustom
+export default {
+  data: () => ({
+    drawer: false,
+    group: null,
+    form:{},
+    arreglo: [
+      {
+        icon: "mdi-database-search",
+        name: "Consultas",
+        route: "consultas",
       },
-    methods:{
-      routeNav(route){
-        this.$router.push({name:route})
-      }
-    }
+      {
+        icon: "mdi-monitor-dashboard",
+        name: "Control",
+        route: "control",
+      },
+      {
+        icon: "mdi-sun-thermometer-outline",
+        name: "Configuracion",
+        route: "configuracion",
+      },
+    ],
+  }),
+  components: {
+    footerCustom,
+  },
+  methods: {
+    routeNav(route) {
+      this.$router.push({ name: route });
+    },
+  async ultimoControl() {
+      const {
+        data: { BOMBAAGUA, EXTRACTOR, FECHA, ILUMINACION },
+      } = await servicioConsulta.ultimoControl();
+
+      const {
+        data: [last],
+      } = await servicioConsulta.getLastData({ elements: 1, pagination:false });
+
+      const { TAMB1, TAMB2, HTD1, HTD2, HTI1, HTI2, LUM1, HAMB1, HAMB2 } = last;
+
+      const reformatData = {
+        luces: ILUMINACION,
+        climatizacion: EXTRACTOR,
+        humedad: BOMBAAGUA,
+        temperatura: (TAMB1 + TAMB2) / 2,
+        fecha: moment(FECHA).format("DD/MM/YYYY HH:mm:ss"),
+        humedadDerecha: (HTD1 + HTD2) / 2,
+        humedadIzquierda: (HTI1 + HTI2) / 2,
+        luz1: LUM1,
+        humedadambiente: (HAMB1 + HAMB2) /2
+      };
+      this.form = reformatData;
+    },
+  },
+  async created(){
+    await this.ultimoControl()
   }
+};
 </script>
 
 <style>
-
-Body {Background-color : #DBF9FC;}
+Body {
+  background-color: #dbf9fc;
+}
 </style>

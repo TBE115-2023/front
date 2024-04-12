@@ -26,17 +26,13 @@
       links: [
         {
           name: 'GITHUB',
-          link: 'https://www.github.com'
+          link: 'https://github.com/TBE115-2023'
         },
         {
           name:'GOOGLE DRIVE',
-          link: 'https://www.googledrive.com'
+          link: 'https://drive.google.com/drive/folders/1cm_GFPqE61-2IXQKM9_EffP4_1LKwAsU?usp=sharing'
         },
-        {
-          name:'ACERCA DE',
-          link: 'https://www.google.com'
-        }
-        ,
+        
       ],
     }),
     methods:{
